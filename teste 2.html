@@ -4,52 +4,42 @@
 <head>
     <title>Cross word Puzzel</title>
     <style>
-        body{font-family: Arial, Helvetica, sans-serif;
-            background-color: #F7F7FF;
-        }
-        .textDesc{padding: 0 3rem 1rem 9rem; text-align: justify;}
+        body{font-family: Arial, Helvetica, sans-serif; background-color: #F7F7FF;}
+
         h1{text-align: center; color: #E24E1B;}
+
         h2{text-align: center; color: #093A3E; font-size: 30px;}
 
-        tr {
-            margin: 0;
-            padding: 0;
-            border-collapse: collapse;
-        }
-        td {
-            height: 30px;
-            width: 30px;
-        }
+        h3{text-align: center; color: #E24E1B;}
+
+        tr {margin: 0; padding: 0; border-collapse: collapse;}
+
+        td {height: 30px; width: 30px;}
+
+        .textDesc{padding: 0 3rem 1rem 9rem; text-align: justify;}
 
         .butt {
             height: 50px;
             background-color: #C0DFA1;
             border-color: #9FC490;
+            border-radius: 10px;
             font-size: 20px;
             width: 107px;
-            margin-left: 250px;
+            margin-left: 350px;
         }
-        #puzzel {
-            text-align: center;
-            margin-left: 6%;
-            padding: 0;
-            border-collapse: collapse;
-            border: 1px solid #4682B4;
-        }
+        #puzzel {text-align: center; margin-left: 6%; padding: 0; border-collapse: collapse; border: 1px solid #4682B4;}
+        
         .dicas{display: flex; padding: 1rem 4rem 0 4rem; text-align: justify;}
+
         .vertical{position: relative; margin-left: 2rem;}
-        h3{text-align: center; color: #E24E1B;}
-        .inputBox {
-            width: 40px;
-            height: 40px;
-            border: 1px solid #4682B4;
-            text-align: center;
-        }
-        #hintsTable {
-            width: 480px;
-            float: center;
-            clear: left;
-        }
+
+        .inputBox {width: 40px; height: 40px; border: 1px solid #4682B4; text-align: center;}
+
+        #hintsTable {width: 480px; float: center; clear: left;}
+
+        ::-webkit-scrollbar-track {background-color: #9FC490;}
+        ::-webkit-scrollbar {width: 6px; background: #b34933;}
+        ::-webkit-scrollbar-thumb {background: #b34933;}
     </style>
 
 </head>
@@ -58,19 +48,19 @@
     <h1>CAÇA-PALAVRAS</h1>
     <p class="textDesc">Sabemos que você é um expert em Arquitetura computacional, por isso, preparamos esse caça-palavras para mostrar o quanto você manja!<br/>
     Fique atento as dicas abaixo do caça-palavras, algumas estão muito facéis e outras nem tanto, mas você consegue!</p>
-    <section class="box">
-        <div id="leftBox">
+    <section>
+        <div>
             <table id="puzzel">
 
             </table>
         </div>
         <br />
-        <div id="rightBox">
+        <div>
             <table>
                 <tr>
-                    <td><input class="butt" type="submit" value="Clear All" onclick="clearAllClicked()"></td>
-                    <td><input class="butt" type="submit" value="Check" onclick="checkClicked()"></td>
-                    <td><input class="butt"  type="submit" value="Solve" onclick="solveClicked()"></td>
+                    <td><input class="butt" type="submit" value="Limpar" onclick="clearAllClicked()"></td>
+                    <td><input class="butt" type="submit" value="Verificar" onclick="checkClicked()"></td>
+                    <!-- <td><input class="butt"  type="submit" value="Solve" onclick="solveClicked()"></td>-->
                 </tr>
             </table>
         </div>
@@ -105,10 +95,10 @@
 
 </html>
 <script>
-    //Globals
+    //variáveis globais
     var currentTextInput;
     var puzzelArrayData;
-    //Loads the Crossword
+    //Carrega as palavras cruzadas
     function initializeScreen() {
         var puzzelTable = document.getElementById("puzzel");
         puzzelArrayData = preparePuzzelArray();
@@ -121,13 +111,13 @@
                     var txtID = String('txt' + '_' + i + '_' + j);
                     cell.innerHTML = '<input type="text" class="inputBox" maxlength="1" style="text-transform: lowercase" ' + 'id="' + txtID + '" onfocus="textInputFocus(' + "'" + txtID + "'" + ')">';
                 } else {
-                    cell.style.backgroundColor = "#465362";
+                    cell.style.backgroundColor = "#F7F7FF";
                 }
             }
         }
         addHint();
     }
-    //Adds the hint numbers
+    //Adiciona os números das dicas
     function addHint() {
         document.getElementById("txt_0_7").placeholder = "1";
         document.getElementById("txt_3_7").placeholder = "2";
@@ -145,11 +135,11 @@
         document.getElementById("txt_6_16").placeholder = "14";
         document.getElementById("txt_9_16").placeholder = "15";
     }
-    //Stores ID of the selected cell into currentTextInput
+    //Armazena o ID da célula selecionada em currentTextInput
     function textInputFocus(txtID123) {
         currentTextInput = txtID123;
     }
-    //Returns Array
+    //Retorna Array
     function preparePuzzelArray() {
         var items = [
                         [0, 0, 0, 0, 0, 0, 0, 'r', 'o', 'm', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -172,14 +162,14 @@
         ];
         return items;
     }
-    //Clear All Button
+    //Botão limpar
     function clearAllClicked() {
         currentTextInput = '';
         var puzzelTable = document.getElementById("puzzel");
         puzzelTable.innerHTML = '';
         initializeScreen();
     }
-    //Check button
+    //botão verificar
     function checkClicked() {
         var pontos = 0;
         for (var i = 0; i < puzzelArrayData.length; i++) {
@@ -197,46 +187,11 @@
                 }
             }
         }
-        if (pontos == 80) {
+        if (pontos == 75) {
             alert("Parabéns, você conseguiu!!")
         } else {
             alert("Sinto muito, você errou")
         }
     }
-    function solveClicked(){
-	if (currentTextInput != null){
-		var temp1 = currentTextInput;
-		var token = temp1.split("_");
-		var row = token[1];
-		var column = token[2];
-		
-		// Print elements on top
-		for(j = row; j >= 0; j--){
-			if(puzzelArrayData[j][column] != 0){
-				document.getElementById('txt' + '_' + j + '_' + column).value = puzzelArrayData[j][column];
-				}else break;
-		}
-		// Print elements on right
-		for(i = column; i< puzzelArrayData[row].length; i++){
-			if(puzzelArrayData[row][i] != 0){
-				document.getElementById('txt' + '_' + row + '_' + i).value = puzzelArrayData[row][i];
-				}else break;
-		}
-		
-		// Print elements below
-		for(m = row; m< puzzelArrayData.length; m++){
-			if(puzzelArrayData[m][column] != 0){
-				document.getElementById('txt' + '_' + m + '_' + column).value = puzzelArrayData[m][column];
-				}else break;
-		}
-		// Print elements on left
-		for(k = column; k >= 0; k--){
-			if(puzzelArrayData[row][k] != 0){
-				document.getElementById('txt' + '_' + row + '_' + k).value = puzzelArrayData[row][k];
-				}else break;
-		}
-		// Done!
-		
-	}
-}
+    
 </script>
