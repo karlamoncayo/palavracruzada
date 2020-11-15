@@ -4,64 +4,50 @@
 <head>
     <title>Cross word Puzzel</title>
     <style>
-        #cross {
-            text-align: center;
-            width: 30px;
-            height: 30px;
-            margin: 0;
-            padding: 0;
-            border-collapse: collapse;
-            border: 1px solid white;
+        body{font-family: Arial, Helvetica, sans-serif;
+            background-color: #F7F7FF;
         }
-
-        #buttons {
-            width: 30%;
-            float: right;
-        }
+        .textDesc{padding: 0 3rem 1rem 9rem; text-align: justify;}
+        h1{text-align: center; color: #E24E1B;}
+        h2{text-align: center; color: #093A3E; font-size: 30px;}
 
         tr {
             margin: 0;
             padding: 0;
             border-collapse: collapse;
         }
-
         td {
             height: 30px;
             width: 30px;
         }
 
-        #leftBox {
-            float: left;
-        }
-
-        #rightBox {
-            float: left;
-            clear: left;
-        }
-
         .butt {
             height: 50px;
+            background-color: #C0DFA1;
+            border-color: #9FC490;
+            font-size: 20px;
             width: 107px;
+            margin-left: 250px;
         }
-
         #puzzel {
             text-align: center;
-            margin: 0;
+            margin-left: 6%;
             padding: 0;
             border-collapse: collapse;
-            border: 1px solid black;
+            border: 1px solid #4682B4;
         }
-
+        .dicas{display: flex; padding: 1rem 4rem 0 4rem; text-align: justify;}
+        .vertical{position: relative; margin-left: 2rem;}
+        h3{text-align: center; color: #E24E1B;}
         .inputBox {
             width: 40px;
             height: 40px;
-            border: 1px solid black;
+            border: 1px solid #4682B4;
             text-align: center;
         }
-
         #hintsTable {
             width: 480px;
-            float: left;
+            float: center;
             clear: left;
         }
     </style>
@@ -69,36 +55,51 @@
 </head>
 
 <body onload="initializeScreen()">
-    <div id="leftBox">
-        <table id="puzzel">
+    <h1>CAÇA-PALAVRAS</h1>
+    <p class="textDesc">Sabemos que você é um expert em Arquitetura computacional, por isso, preparamos esse caça-palavras para mostrar o quanto você manja!<br/>
+    Fique atento as dicas abaixo do caça-palavras, algumas estão muito facéis e outras nem tanto, mas você consegue!</p>
+    <section class="box">
+        <div id="leftBox">
+            <table id="puzzel">
 
-        </table>
-    </div>
-    <div id="rightBox">
-        <table>
-            <tr>
-                <td><input class="butt" type="submit" value="Clear All" onclick="clearAllClicked()"></td>
-                <td><input class="butt" type="submit" value="Check" onclick="checkClicked()"></td>
-            </tr>
-        </table>
-    </div>
-    <table id="hintsTable">
-        <tr>
-            <td><strong>Horizontal:</strong></td>
-            <td><strong>Vertical:</strong></td>
-        </tr>
-        <tr>
-            <td>3. Cultural Hub (Hyderabad)</td>
-            <td>1. Education Hub (Pune)</td>
-        </tr>
-        <tr>
-            <td>5. India's financial capital (Mumbai)</td>
-            <td>2. Information Technology Hub (Bangalore)</td>
-        </tr>
-        <tr>
-            <td>6. Saffron region (Kashmir)</td>
-            <td>4. Capital of India (Delhi)</td>
-    </table>
+            </table>
+        </div>
+        <br />
+        <div id="rightBox">
+            <table>
+                <tr>
+                    <td><input class="butt" type="submit" value="Clear All" onclick="clearAllClicked()"></td>
+                    <td><input class="butt" type="submit" value="Check" onclick="checkClicked()"></td>
+                    <td><input class="butt"  type="submit" value="Solve" onclick="solveClicked()"></td>
+                </tr>
+            </table>
+        </div>
+    </section><br/>
+    <h2>Dicas!</h2>
+    <section class="dicas">
+        <div class="horizontal">
+            <h3>Horizontal: </h3>
+            <p>2 - É um processador, sendo o primeiro modelo da nova geração e apresenta uma frequência de 2.66 GHz, trabalhando com 4 núcleos(Quad Core) e possuindo um cache L3 de 8 MB!</p>
+            <p>3. É um mecanismo fundamental para permitir à CPU acessar memórias e/ou periféricos externos por meio de endereços!</p>
+            <p>6 - Armazena uma grande quantidade de dados, e os dados dessa memória são acessados pela RAM e não pelo CPU!</p>
+            <p>9 - Permite a leitura rápida e é resetada quando o computador é desligado!</p>
+            <p>10 - É a via elétrica usada para transferir dados entre componentes de um computador!</p>
+            <p>12 - É uma ROM porem com a capacidade de ser programavel!</p>
+            <p>13 - É uma memória de rápida leitura, e os dados podem ser armazenados tambem de forma massiva, sua finalidade é fornecer uma memória regravável!</p>
+            <p>15 -  É um processador com duas unidades de processamento capazes de lidar com tarefas independentes, ou seja, um processador com 2 núcleos!</p>
+            <p>16 - É uma memória de apenas leitura para armazenar dados a longo prazo e que independem de energia então mesmo o computador sendo desligado mantem os dados armazenados!</p>
+        </div>
+
+        <div class="vertical">
+            <h3>Vertical: </h3>
+            <p>1 - É a memoria rápida do microprocessador na CPU, são tipicamente usados como um dispositivo de armazenamento temporário!</p>
+            <p>4 - É um hardware no computador responsável realizadar instruções como, aritmética básica, lógica, e a entrada e saída de dados!</p>
+            <p>5 - Permite que alguns hardwares acessem a memória do sistema para a leitura e escrita independente da CPU!</p>
+            <p>7 - Faz parte do circuito digital da CPU e é responsável pelas operações lógicas e aritméticas!</p>
+            <p>8 - É um processador, sendo que os modelos atuais podem trabalhar em modo Triple Channel!</p>
+            <p>11 - É um barramento, usado por uma CPU ou por dispositivos capazes de usar DMA para informar os endereços físicos/locações de memória de um computador que o microprocessador ou dispositivo deseja acessar!</p>
+        </div>
+    </section>
 
 </body>
 
@@ -120,7 +121,7 @@
                     var txtID = String('txt' + '_' + i + '_' + j);
                     cell.innerHTML = '<input type="text" class="inputBox" maxlength="1" style="text-transform: lowercase" ' + 'id="' + txtID + '" onfocus="textInputFocus(' + "'" + txtID + "'" + ')">';
                 } else {
-                    cell.style.backgroundColor = "black";
+                    cell.style.backgroundColor = "#465362";
                 }
             }
         }
@@ -128,12 +129,21 @@
     }
     //Adds the hint numbers
     function addHint() {
-        document.getElementById("txt_0_4").placeholder = "1";
-        document.getElementById("txt_2_6").placeholder = "2";
-        document.getElementById("txt_3_1").placeholder = "3";
-        document.getElementById("txt_3_9").placeholder = "4";
-        document.getElementById("txt_6_2").placeholder = "5";
-        document.getElementById("txt_9_0").placeholder = "6";
+        document.getElementById("txt_0_7").placeholder = "1";
+        document.getElementById("txt_3_7").placeholder = "2";
+        document.getElementById("txt_4_6").placeholder = "3";
+        document.getElementById("txt_9_20").placeholder = "4";
+        document.getElementById("txt_7_0").placeholder = "5";
+        document.getElementById("txt_8_0").placeholder = "6";
+        document.getElementById("txt_6_10").placeholder = "7";
+        document.getElementById("txt_8_5").placeholder = "8";
+        document.getElementById("txt_10_7").placeholder = "9";
+        document.getElementById("txt_12_1").placeholder = "10";
+        document.getElementById("txt_8_13").placeholder = "11";
+        document.getElementById("txt_11_13").placeholder = "12";
+        document.getElementById("txt_13_10").placeholder = "13";
+        document.getElementById("txt_6_16").placeholder = "14";
+        document.getElementById("txt_9_16").placeholder = "15";
     }
     //Stores ID of the selected cell into currentTextInput
     function textInputFocus(txtID123) {
@@ -141,18 +151,24 @@
     }
     //Returns Array
     function preparePuzzelArray() {
-        var items = [[0, 0, 0, 0, 'p', 's', 'd', 0, 0, 0],
-        [0, 0, 0, 0, 'u', 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 'n', 0, 'b', 0, 0, 0],
-        [0, 'h', 'y', 'd', 'e', 'r', 'a', 'b', 'a', 'd'],
-        [0, 0, 0, 0, 0, 0, 'n', 0, 0, 'e'],
-        [0, 0, 0, 0, 0, 0, 'g', 0, 0, 'l'],
-        [0, 0, 'm', 'u', 'm', 'b', 'a', 'i', 0, 'h'],
-        [0, 0, 0, 0, 0, 0, 'l', 0, 0, 'i'],
-        [0, 0, 0, 0, 0, 0, 'o', 0, 0, 0],
-        ['k', 'a', 's', 'h', 'm', 'i', 'r', 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 'e', 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 'f']
+        var items = [
+                        [0, 0, 0, 0, 0, 0, 0, 'r', 'o', 'm', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 'e', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 'g', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 'i', '5', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 'c', 's', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 't', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 'r', 0, 0, 'u', 0, 0, 0, 0, 0, 'q', 0, 0, 0, 0, 0, 0, 0],
+                        ['d', 0, 0, 0, 0, 0, 0, 'a', 0, 0,'l', 0, 0, 0, 0, 0, 'u', 0, 0, 0, 0, 0, 0, 0],
+                        ['m', 'e', 'm', 'o', 'r', 'i', 'a', 'd', 'e', 'm', 'a', 's', 's', 'a', 0, 0, 'a', 0, 0, 0, 0, 0, 0, 0],
+                        ['a', 0, 0, 0, 0, '7', 0, 'o', 0, 0, 0, 0, 0, 'd', 0, 0, 'd', 'u', 'a', 'l', 'c', 'o', 'r', 'e'],
+                        [0, 0, 0, 0, 0, 0, 0, 'r', 'a', 'm', 0, 0, 0, 'r', 0, 0, 'c', 0, 0, 0, 'p', 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0,'e', 0, 0, 0, 0, 0, 'e', 'p', 'r', 'o', 'm', 0, 0, 'u', 0, 0, 0],
+                        [0, 'd', 'a', 't', 'a', 'b', 'u', 's', 0, 0, 0, 0, 0, 's', 0, 0, 'r', 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'f', 'l', 'a', 's', 'h', 0,'e', 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'b', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'u', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 's', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         ];
         return items;
     }
@@ -165,6 +181,7 @@
     }
     //Check button
     function checkClicked() {
+        var pontos = 0;
         for (var i = 0; i < puzzelArrayData.length; i++) {
             var rowData = puzzelArrayData[i];
             for (var j = 0; j < rowData.length; j++) {
@@ -175,11 +192,51 @@
 
                     } else {
                         selectedInputTextElement.style.backgroundColor = 'white';
-                        alert("PARABÉNS VOCÊ CONCLUIU!")
+                        pontos++
                     }
                 }
             }
         }
+        if (pontos == 80) {
+            alert("Parabéns, você conseguiu!!")
+        } else {
+            alert("Sinto muito, você errou")
+        }
     }
-
+    function solveClicked(){
+	if (currentTextInput != null){
+		var temp1 = currentTextInput;
+		var token = temp1.split("_");
+		var row = token[1];
+		var column = token[2];
+		
+		// Print elements on top
+		for(j = row; j >= 0; j--){
+			if(puzzelArrayData[j][column] != 0){
+				document.getElementById('txt' + '_' + j + '_' + column).value = puzzelArrayData[j][column];
+				}else break;
+		}
+		// Print elements on right
+		for(i = column; i< puzzelArrayData[row].length; i++){
+			if(puzzelArrayData[row][i] != 0){
+				document.getElementById('txt' + '_' + row + '_' + i).value = puzzelArrayData[row][i];
+				}else break;
+		}
+		
+		// Print elements below
+		for(m = row; m< puzzelArrayData.length; m++){
+			if(puzzelArrayData[m][column] != 0){
+				document.getElementById('txt' + '_' + m + '_' + column).value = puzzelArrayData[m][column];
+				}else break;
+		}
+		// Print elements on left
+		for(k = column; k >= 0; k--){
+			if(puzzelArrayData[row][k] != 0){
+				document.getElementById('txt' + '_' + row + '_' + k).value = puzzelArrayData[row][k];
+				}else break;
+		}
+		// Done!
+		
+	}
+}
 </script>
